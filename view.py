@@ -26,17 +26,17 @@ def main():
 
         if controlos[0] == "RPDE":
             
-            controller.registar_pais_depois_elemento(lista_paises, controlos[1], controlos[2])
+            controller.registar_pais_depois_elemento(lista_paises, controlos[2], controlos[1])
             lista_paises.traverse_list()
 
         if controlos[0] == "RPAE":
             
-            controller.registar_pais_antes_elemento(lista_paises, controlos[1], controlos[2])
+            controller.registar_pais_antes_elemento(lista_paises, controlos[2], controlos[1])
             lista_paises.traverse_list()
 
         if controlos[0] == "RPII":
 
-            controller.registar_pais_indice(lista_paises, controlos[1], int(controlos[2]))
+            controller.registar_pais_indice(lista_paises, int(controlos[2]),controlos[1])
             lista_paises.traverse_list()
             
 
@@ -47,28 +47,42 @@ def main():
             
             controller.verificar_numero_elementos(lista_paises)
             lista_paises.traverse_list()
-            print(f"O numero de elementos são {lista_paises.get_count()}.")
+            print(f"O número de elementos são {lista_paises.get_count()}.")
 
         if controlos[0] == "VP":
+
+            pais = lista_paises.search_item
+
             controller.verificar_pais(lista_paises, controlos[1])
             lista_paises.traverse_list()
+
+            if True:
+                print(f"O país {controlos[1]} encontra-se na lista.")
+            
+            else:
+                print(f"O país {controlos[1]} não se encontra na lista.")
+            
             
             
 
         if controlos[0] == "EPE":
+
+            primeiro_elemento = lista_paises.start_node.item
             
             controller.eliminar_primeiro_pais(lista_paises)
             lista_paises.traverse_list()
-            #print(f"O país {pais} foi eliminado da lista.)
+            print(f"O país {primeiro_elemento} foi eliminado da lista.")
             
             
             
 
         if controlos[0] == "EUE":
-            
+
+            ultimo_elemento = lista_paises.get_last_node()
+
             controller.eliminar_ultimo_pais(lista_paises)
             lista_paises.traverse_list()
-            print(f"O país {lista_paises.delete_at_start()} foi eliminado da lista")
+            print(f"O país {ultimo_elemento} foi eliminado da lista")
 
         if controlos[0] == "EP":
             
